@@ -1,22 +1,8 @@
-function scrollSuave() {
-  const linksInternos = document.querySelectorAll(
-    '[data-scroll="suave"] a[href^="#"]'
-  );
+import ScrollSuave from "./scrollSuave.js";
+import Slide from "./slide.js";
 
-  function scrollToSection(event) {
-    event.preventDefault();
-    const href = event.currentTarget.getAttribute("href");
-    const section = document.querySelector(href);
+ScrollSuave();
+const slide = new Slide(".slide", ".slide-container");
+console.log(slide);
 
-    section.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  }
-
-  linksInternos.forEach((item) => {
-    item.addEventListener("click", scrollToSection);
-  });
-}
-
-scrollSuave();
+slide.init();
